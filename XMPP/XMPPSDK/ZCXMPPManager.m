@@ -50,10 +50,11 @@ static ZCXMPPManager *sharedManager;
         [DDLog addLogger:[DDTTYLogger sharedInstance]];
         [sharedManager setupStream];
         sharedManager.chatPerson=NONE;
-        
+
     });
     return sharedManager;
 }
+
 #pragma mark 查找特定房间
 -(void)fetchRoomName:(NSString*)roomName Block:(void(^)(NSDictionary*))b{
 /*查询特定房间
@@ -105,7 +106,7 @@ static ZCXMPPManager *sharedManager;
 {
     
     /*
-     <iq type="get" to="conference.admin-88ixf99az" id="disco2"><query xmlns="http://jabber.org/protocol/disco#items"></query></iq>
+     <iq type="get" to="conference.1000phone.net" id="disco2"><query xmlns="http://jabber.org/protocol/disco#items"></query></iq>
      */
     
 
@@ -542,6 +543,7 @@ NSDictionary*dic=@{@"nikeName":nikeName.text,@"desName":[NSString stringWithForm
     if (temp) {
         if (self.myVcardBlock) {
             self.myVcardBlock(YES,temp);
+            self.myVcardBlock=nil;
  
         }
     }
@@ -559,13 +561,27 @@ NSDictionary*dic=@{@"nikeName":nikeName.text,@"desName":[NSString stringWithForm
         if (self.myVcardBlock) {
             
             self.myVcardBlock(YES,vCardTemp);
+            self.myVcardBlock=nil;
 
         }
     }else{
     
-        if (self.friendVcardBlock) {
-            self.friendVcardBlock(YES,vCardTemp);
+      NSArray*array=  [self.friendVcardDic objectForKey:jid.user];
+        if (array) {
+            //遍历群发
+          
+            for (void(^vcard)(BOOL,XMPPvCardTemp*) in array) {
+                if (vcard) {
+                    vcard(YES,vCardTemp);
+
+                }
+            }
+            
+            //群发后删除该value
+            [self.friendVcardDic removeObjectForKey:jid.user];
         }
+        
+
     }
     
     
@@ -631,21 +647,19 @@ NSDictionary*dic=@{@"nikeName":nikeName.text,@"desName":[NSString stringWithForm
     
 }
 #pragma mark 获得好友的资料Vcard
--(XMPPvCardTemp*)friendsVcard:(NSString*)useId{
-    
-    NSLog(@"%@",useId);
- XMPPvCardTemp*tempvCard=   [xmppvCardTempModule vCardTempForJID:[XMPPJID jidWithUser:useId domain:DOMAIN resource:ZIYUANMING] shouldFetch:YES];
-
-    return tempvCard;
-
-}
-//扩展方法
 -(void)friendsVcard:(NSString *)useId Block:(void(^)(BOOL,XMPPvCardTemp*))a{
-    self.friendVcardBlock=a;
     XMPPvCardTemp*tempvCard=   [xmppvCardTempModule vCardTempForJID:[XMPPJID jidWithUser:useId domain:DOMAIN resource:ZIYUANMING] shouldFetch:YES];
-    
     if (tempvCard) {
-        self.friendVcardBlock(YES,tempvCard);
+       
+        a(YES,tempvCard);
+    }else{
+        NSMutableArray*array=self.friendVcardDic[useId];
+        if (!array) {
+            array=[NSMutableArray arrayWithCapacity:0];
+        }
+        [array addObject:[a copy]];
+        [self.friendVcardDic setObject:array forKey:useId];
+    
     }
     
     
@@ -1061,6 +1075,8 @@ NSDictionary*dic=@{@"nikeName":nikeName.text,@"desName":[NSString stringWithForm
     [userDefaults removeObjectForKey:kXMPPmyPassword];
     [userDefaults synchronize];
     [self.subscribeArray removeAllObjects];
+    //销毁所有好友回调
+    [self.friendVcardDic removeAllObjects];
     //发送离线消息
 	[self goOffline];
     self.badgeValue=nil;
@@ -1100,7 +1116,7 @@ NSDictionary*dic=@{@"nikeName":nikeName.text,@"desName":[NSString stringWithForm
 {
 	DDLogVerbose(@"%@: %@", THIS_FILE, THIS_METHOD);
 	NSLog(@"完成认证，发送在线状态");
-	[self goOnline];
+    [self goOnline];
     [xmppRoster fetchRoster];
     sharedManager.logoin(YES);
     
@@ -1327,6 +1343,7 @@ NSDictionary*dic=@{@"nikeName":nikeName.text,@"desName":[NSString stringWithForm
     }else{
         self.yanzhengxiaoxi=[NSMutableDictionary dictionaryWithCapacity:0];
     }
+    self.friendVcardDic=[NSMutableDictionary dictionaryWithCapacity:0];
     //修复bug 2014.6.14
     [xmppRosterStorage mainThreadManagedObjectContext];
     

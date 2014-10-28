@@ -8,6 +8,11 @@
 #pragma mark 集成说明
 /*
  版本说明 iOS研究院 305044955
+ XMPP封装2.3版本
+ 废除了直接获取好友方法，修改为使用block方式
+ 修复了好友列表乱序的问题
+ 修复个人信息回调重复回调的问题
+ 待定bug：获取个人信息有几率获取不到
  XMPP封装2.2版本
  修改了ZCXMPPManager支持为ARC版本
  增加了一些宏定义
@@ -379,8 +384,6 @@ timestamp  发送的时间
 -(void)agreeRequest:(NSString*)name;
 //拒绝
 -(void)reject:(NSString*)name;
-//获得好友名片
--(XMPPvCardTemp*)friendsVcard:(NSString*)useId;
 //扩展方法
 -(void)friendsVcard:(NSString *)useId Block:(void(^)(BOOL,XMPPvCardTemp*))a;
 
@@ -433,8 +436,9 @@ timestamp  发送的时间
 
 //接收个人中心Vcard回调
 @property(nonatomic,copy)void(^myVcardBlock)(BOOL,XMPPvCardTemp*);
-//接收好友的Vcard回调
-@property(nonatomic,copy)void(^friendVcardBlock)(BOOL,XMPPvCardTemp*);
+//接收好友的Vcard回调的字典，字典中key是好友的用户名，value是数组，数组中保存的是block指针，相当于是做成了一个通知
+@property(nonatomic,strong)NSMutableDictionary*friendVcardDic;
+
 
 @property(nonatomic,copy)void(^friendType)(BOOL);
 //接收按照搜索条件返回的房间jid和房间名称
