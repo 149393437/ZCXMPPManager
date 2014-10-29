@@ -569,7 +569,7 @@ NSDictionary*dic=@{@"nikeName":nikeName.text,@"desName":[NSString stringWithForm
       NSArray*array=  [self.friendVcardDic objectForKey:jid.user];
         if (array) {
             //遍历群发
-          
+            vCardTemp.jid=jid;
             for (void(^vcard)(BOOL,XMPPvCardTemp*) in array) {
                 if (vcard) {
                     vcard(YES,vCardTemp);
@@ -649,6 +649,8 @@ NSDictionary*dic=@{@"nikeName":nikeName.text,@"desName":[NSString stringWithForm
 #pragma mark 获得好友的资料Vcard
 -(void)friendsVcard:(NSString *)useId Block:(void(^)(BOOL,XMPPvCardTemp*))a{
     XMPPvCardTemp*tempvCard=   [xmppvCardTempModule vCardTempForJID:[XMPPJID jidWithUser:useId domain:DOMAIN resource:ZIYUANMING] shouldFetch:YES];
+    
+    tempvCard.jid=[XMPPJID jidWithUser:useId domain:DOMAIN resource:ZIYUANMING];
     if (tempvCard) {
        
         a(YES,tempvCard);
