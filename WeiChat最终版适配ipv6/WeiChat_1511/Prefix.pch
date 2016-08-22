@@ -1,0 +1,92 @@
+//  Prefix.pch
+//  WeiChat_1511
+//
+//  Created by zhangcheng on 16/3/7.
+//  Copyright © 2016年 zhangcheng. All rights reserved.
+
+//                          _oo8oo_
+//                         o8888888o
+//                         88" . "88
+//                         (| -_- |)
+//                         0\  =  /0
+//                       ___/'==='\___
+//                     .' \\|     |// '.
+//                    / \\|||  :  |||// \
+//                   / _||||| -:- |||||_ \
+//                  |   | \\\  -  /// |   |
+//                  | \_|  ''\---/''  |_/ |
+//                  \  .-\__  '-'  __/-.  /
+//                ___'. .'  /--.--\  '. .'___
+//             ."" '<  '.___\_<|>_/___.'  >' "".
+//            | | :  `- \`.:`\ _ /`:.`/ -`  : | |
+//            \  \ `-.   \_ __\ /__ _/   .-` /  /
+//        =====`-.____`.___ \_____/ ___.`____.-`=====
+//                          `=---=`
+//
+//                  佛祖保佑            永无bug
+//     _                            _
+// ___| |__   __ _ _ __   __ _  ___| |__   ___ _ __   __ _
+//|_  / '_ \ / _` | '_ \ / _` |/ __| '_ \ / _ \ '_ \ / _` |
+// / /| | | | (_| | | | | (_| | (__| | | |  __/ | | | (_| |
+///___|_| |_|\__,_|_| |_|\__, |\___|_| |_|\___|_| |_|\__, |
+//                       |___/                       |___/
+
+//小张诚技术博客http://blog.sina.com.cn/u/2914098025
+//github代码地址https://github.com/149393437
+//欢迎加入iOS研究院 QQ群号305044955    你的关注就是我开源的动力
+#ifndef WeiChat_1511_Prefix_pch
+#define WeiChat_1511_Prefix_pch
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "ZCXMPPManager.h"
+#import "ZCControl.h"
+//UI
+#import "LFZCControl.h"
+//刷新
+#import "MJRefresh.h"
+//网络图片
+#import "UIImageView+WebCache.h"
+//HUD指示器
+#import "MBProgressHUD.h"
+//网络下载库
+#import "HttpDownLoad.h"
+//音频播放
+#import "VideoPlayControl.h"
+
+#endif
+//定义网络接口
+#define LIMIT  @"http://115.28.35.83:8088/app/iAppFree/api/limited.php?page=%d&number=20"
+#define FREE   @"http://115.28.35.83:8088/app/iAppFree/api/free.php?page=%d&number=20"
+#define REDUCE @"http://115.28.35.83:8088/app/iAppFree/api/reduce.php?page=%d&number=20"
+#define HOT    @"http://115.28.35.83:8088/app/iAppFree/api/hot.php?page=%d&number=20"
+
+//分类的地址
+#define CATEGROY @"http://115.28.35.83:8088/app/iAppFree/api/appcate.php"
+
+//详情
+#define DETAIL @"http://iappfree.candou.com:8080/free/applications/%@?currency=rmb"
+
+//周围应用
+#define FIND @"http://iappfree.candou.com:8080/free/applications/recommend?longitude=%f&latitude=%f"
+
+//专题
+#define TOP @"http://115.28.35.83:8088/app/iAppFree/api/topic.php?page=%d"
+
+
+//本地收藏使用的宏定义
+#define COLLECT @"collect"
+
+#define IOS9 [[[UIDevice currentDevice]systemVersion]floatValue]>=9.0
+
+
+//百思不得姐
+//定义白色
+#define COLOR [UIColor colorWithPatternImage:[UIImage imageNamed:@"navigationbarBackgroundWhite.png"]]
+
+#define API @"http://api.budejie.com/api/api_open.php"
+//多媒体处理类
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif

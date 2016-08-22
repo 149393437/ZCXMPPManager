@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="1.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1021" minimumToolsVersion="Xcode 4.3">
+    <entity name="Album" representedClassName="UMComAlbum" syncable="YES">
+        <attribute name="create_time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="seq" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="cover" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ImageUrl" syncable="YES"/>
+        <relationship name="image_urls" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ImageUrl" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Comment" representedClassName="UMComComment" syncable="YES">
+        <attribute name="ban_user" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="commentID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="custom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="floor" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="liked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="likes_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="permission" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="seq" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="comment" inverseEntity="User" syncable="YES"/>
+        <relationship name="feed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Feed" inverseName="comments" inverseEntity="Feed" syncable="YES"/>
+        <relationship name="image_urls" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ImageUrl" syncable="YES"/>
+        <relationship name="reply_comment" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Comment" syncable="YES"/>
+        <relationship name="reply_user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="reply_comments" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Feed" representedClassName="UMComFeed" syncable="YES">
+        <attribute name="ban_user" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="be_followed" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="comments_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="custom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="distance" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="feedID" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="forward_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="has_collected" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="is_follow" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="is_recommended" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="is_top" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="is_topType" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="liked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="likes_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="Transformable" valueTransformerName="LocationDictionary" syncable="YES"/>
+        <attribute name="origin_feed_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parent_feed_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="permission" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="seq" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="seq_recommend" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="share_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="share_link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="source_mark" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tag" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Comment" inverseName="feed" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="feeds" inverseEntity="User" syncable="YES"/>
+        <relationship name="forward_feeds" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Feed" inverseName="origin_feed" inverseEntity="Feed" syncable="YES"/>
+        <relationship name="image_urls" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ImageUrl" syncable="YES"/>
+        <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Like" inverseName="feed" inverseEntity="Like" syncable="YES"/>
+        <relationship name="origin_feed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Feed" inverseName="forward_feeds" inverseEntity="Feed" syncable="YES"/>
+        <relationship name="related_user" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="User" inverseName="related_feeds" inverseEntity="User" syncable="YES"/>
+        <relationship name="topics" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Topic" inverseName="feeds" inverseEntity="Topic" syncable="YES"/>
+    </entity>
+    <entity name="ImageUrl" representedClassName="UMComImageUrl" syncable="YES">
+        <attribute name="format" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image_url_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="large_url_string" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="midle_url_string" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="small_url_string" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Like" representedClassName="UMComLike" syncable="YES">
+        <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="likes" inverseEntity="User" syncable="YES"/>
+        <relationship name="feed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Feed" inverseName="likes" inverseEntity="Feed" syncable="YES"/>
+    </entity>
+    <entity name="Medal" representedClassName="UMComMedal" syncable="YES">
+        <attribute name="classify" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="icon_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="medal_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="person_num" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="medal_id"/>
+            </compoundIndex>
+            <compoundIndex>
+                <index value="icon_url"/>
+            </compoundIndex>
+        </compoundIndexes>
+    </entity>
+    <entity name="Notification" representedClassName="UMComNotification" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ntype" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="PrivateLetter" representedClassName="UMComPrivateLetter" syncable="YES">
+        <attribute name="letter_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unread_count" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="update_time" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="last_message" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PrivateMessage" syncable="YES"/>
+        <relationship name="message_records" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PrivateMessage" inverseName="private_letter" inverseEntity="PrivateMessage" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="private_letters" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="PrivateMessage" representedClassName="UMComPrivateMessage" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="message_id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="private_messages" inverseEntity="User" syncable="YES"/>
+        <relationship name="private_letter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PrivateLetter" inverseName="message_records" inverseEntity="PrivateLetter" syncable="YES"/>
+    </entity>
+    <entity name="Topic" representedClassName="UMComTopic" syncable="YES">
+        <attribute name="custom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descriptor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fan_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="feed_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="icon_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="is_focused" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="is_recommend" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="save_time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="seq" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="seq_recommend" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="topicID" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TopicType" inverseName="topics" inverseEntity="TopicType" syncable="YES"/>
+        <relationship name="feeds" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Feed" inverseName="topics" inverseEntity="Feed" syncable="YES"/>
+        <relationship name="follow_users" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="User" inverseName="topics" inverseEntity="User" syncable="YES"/>
+        <relationship name="image_urls" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ImageUrl" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="topicID"/>
+            </compoundIndex>
+            <compoundIndex>
+                <index value="is_focused"/>
+            </compoundIndex>
+            <compoundIndex>
+                <index value="is_recommend"/>
+            </compoundIndex>
+        </compoundIndexes>
+    </entity>
+    <entity name="TopicType" representedClassName="UMComTopicType" syncable="YES">
+        <attribute name="category_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="create_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="icon_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type_description" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="topics" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Topic" inverseName="category" inverseEntity="Topic" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="category_id"/>
+            </compoundIndex>
+        </compoundIndexes>
+    </entity>
+    <entity name="User" representedClassName="UMComUser" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="atype" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="be_at_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="be_followed" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="comment_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="custom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fans_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="feed_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="following_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="has_followed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="is_recommended" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="level_title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="like_count" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="liked_count" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="permissions" optional="YES" attributeType="Transformable" valueTransformerName="Permissions" syncable="YES"/>
+        <attribute name="point" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="registered" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="score" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="source_uid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sum" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="topic_focused_count" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="topic_permission" optional="YES" attributeType="Transformable" valueTransformerName="UMComTopicPermission" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Album" syncable="YES"/>
+        <relationship name="comment" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Comment" inverseName="creator" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="fans" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="User" inverseName="followers" inverseEntity="User" syncable="YES"/>
+        <relationship name="feeds" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Feed" inverseName="creator" inverseEntity="Feed" syncable="YES"/>
+        <relationship name="followers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="User" inverseName="fans" inverseEntity="User" syncable="YES"/>
+        <relationship name="icon_url" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ImageUrl" syncable="YES"/>
+        <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Like" inverseName="creator" inverseEntity="Like" syncable="YES"/>
+        <relationship name="medal_list" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Medal" syncable="YES"/>
+        <relationship name="private_letters" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PrivateLetter" inverseName="user" inverseEntity="PrivateLetter" syncable="YES"/>
+        <relationship name="private_messages" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PrivateMessage" inverseName="creator" inverseEntity="PrivateMessage" syncable="YES"/>
+        <relationship name="related_feeds" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Feed" inverseName="related_user" inverseEntity="Feed" syncable="YES"/>
+        <relationship name="reply_comments" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Comment" inverseName="reply_user" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="topics" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Topic" inverseName="follow_users" inverseEntity="Topic" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Album" positionX="-81" positionY="-18" width="128" height="135"/>
+        <element name="Comment" positionX="45" positionY="-48" width="128" height="285"/>
+        <element name="Feed" positionX="-162" positionY="-135" width="128" height="600"/>
+        <element name="ImageUrl" positionX="-63" positionY="36" width="128" height="120"/>
+        <element name="Like" positionX="70" positionY="261" width="128" height="105"/>
+        <element name="Medal" positionX="-54" positionY="45" width="128" height="165"/>
+        <element name="Notification" positionX="-81" positionY="-18" width="128" height="120"/>
+        <element name="PrivateLetter" positionX="-81" positionY="18" width="128" height="135"/>
+        <element name="PrivateMessage" positionX="-72" positionY="27" width="128" height="120"/>
+        <element name="Topic" positionX="178" positionY="69" width="128" height="285"/>
+        <element name="TopicType" positionX="-81" positionY="18" width="128" height="135"/>
+        <element name="User" positionX="-288" positionY="99" width="128" height="675"/>
+    </elements>
+</model>

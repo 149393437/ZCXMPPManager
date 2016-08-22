@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController3">
+            <connections>
+                <outlet property="passWordTextField" destination="0hD-xR-Jzq" id="2en-hP-Xfs"/>
+                <outlet property="phoneTextField" destination="OR0-gc-Xpx" id="eqv-40-PEe"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请设置电话号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OR0-gc-Xpx">
+                    <rect key="frame" x="0.0" y="40" width="600" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="jTU-M2-2t4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请设置密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0hD-xR-Jzq">
+                    <rect key="frame" x="0.0" y="81" width="600" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Ci2-8p-Dgo"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="0hD-xR-Jzq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="E4o-DC-7no"/>
+                <constraint firstItem="OR0-gc-Xpx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Rsn-Y3-CQd"/>
+                <constraint firstItem="OR0-gc-Xpx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="bpm-G9-5uB"/>
+                <constraint firstItem="0hD-xR-Jzq" firstAttribute="top" secondItem="OR0-gc-Xpx" secondAttribute="bottom" constant="1" id="cNK-uj-WRD"/>
+                <constraint firstAttribute="trailing" secondItem="OR0-gc-Xpx" secondAttribute="trailing" id="oug-r9-0O5"/>
+                <constraint firstAttribute="trailing" secondItem="0hD-xR-Jzq" secondAttribute="trailing" id="ujd-5W-Yca"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+        </view>
+    </objects>
+</document>

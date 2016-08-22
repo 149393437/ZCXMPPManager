@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ID1" id="KGk-i7-Jjw" customClass="GroupCheckCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mer-8g-irt">
+                        <rect key="frame" x="244" y="13" width="30" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="k3Y-yy-jiD"/>
+                            <constraint firstAttribute="width" constant="30" id="kIP-OL-tfT"/>
+                        </constraints>
+                        <state key="normal" title="加入"/>
+                        <connections>
+                            <action selector="agreeGroupCheck:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WyV-po-nxd"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjn-5Y-TAm">
+                        <rect key="frame" x="282" y="12" width="30" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="ZIs-ye-fz1"/>
+                            <constraint firstAttribute="height" constant="20" id="iGI-lX-8nA"/>
+                        </constraints>
+                        <state key="normal" title="拒绝"/>
+                        <connections>
+                            <action selector="rejectGroupCheck:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZIk-gM-bLG"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="PmU-Py-Yae">
+                        <rect key="frame" x="8" y="8" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="TcW-87-eHu"/>
+                            <constraint firstAttribute="width" constant="30" id="lW4-nG-PHL"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBE-Mi-IHV">
+                        <rect key="frame" x="46" y="8" width="188" height="30.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="同意" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWg-7y-hPk">
+                        <rect key="frame" x="262" y="13" width="34" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="2Z8-zc-y0t"/>
+                            <constraint firstAttribute="width" constant="34" id="7A8-0G-CN0"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.74955929487179485" green="0.74955929487179485" blue="0.74955929487179485" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="RBE-Mi-IHV" secondAttribute="bottom" constant="5" id="6q2-7n-taK"/>
+                    <constraint firstAttribute="trailing" secondItem="Rjn-5Y-TAm" secondAttribute="trailing" constant="8" id="EPG-op-SBa"/>
+                    <constraint firstItem="Mer-8g-irt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="G0N-jb-xAU"/>
+                    <constraint firstItem="Rjn-5Y-TAm" firstAttribute="leading" secondItem="Mer-8g-irt" secondAttribute="trailing" constant="8" id="Kf3-wQ-fHu"/>
+                    <constraint firstItem="RBE-Mi-IHV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="OSf-MS-2qc"/>
+                    <constraint firstItem="PmU-Py-Yae" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="RB0-lX-S4Y"/>
+                    <constraint firstItem="RBE-Mi-IHV" firstAttribute="leading" secondItem="PmU-Py-Yae" secondAttribute="trailing" constant="8" id="SSE-nx-HDZ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="PWg-7y-hPk" secondAttribute="trailing" constant="16" id="VYf-qc-4vZ"/>
+                    <constraint firstItem="Rjn-5Y-TAm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Vhe-TR-1gK"/>
+                    <constraint firstItem="PWg-7y-hPk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="cHM-bV-dW8"/>
+                    <constraint firstItem="Mer-8g-irt" firstAttribute="leading" secondItem="RBE-Mi-IHV" secondAttribute="trailing" constant="10" id="hda-a0-B60"/>
+                    <constraint firstItem="PmU-Py-Yae" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="zvm-z6-9c5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="agreeButton" destination="Mer-8g-irt" id="vhX-oj-Dsh"/>
+                <outlet property="agreeLabel" destination="PWg-7y-hPk" id="NyE-td-kjr"/>
+                <outlet property="groupHeaderImageView" destination="PmU-Py-Yae" id="EbJ-K4-6My"/>
+                <outlet property="groupLabel" destination="RBE-Mi-IHV" id="cRb-zd-VKF"/>
+                <outlet property="rejectButton" destination="Rjn-5Y-TAm" id="qfB-DK-zeM"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="logo_2.png" width="60" height="60"/>
+    </resources>
+</document>

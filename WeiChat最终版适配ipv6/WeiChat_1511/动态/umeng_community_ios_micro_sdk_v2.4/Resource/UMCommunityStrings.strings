@@ -1,0 +1,111 @@
+/* 
+  UMCommunityStrings.strings
+  UMCommunity
+
+  Created by luyiyuan on 14/10/9.
+  Copyright (c) 2014年 Umeng. All rights reserved.
+*/
+//全局
+
+Unknown_Error="该错误未知，请稍后重试";
+Server_Data_Error="Server 返回数据出错";
+
+// -----------------------------------以上为通用----------------------------------------------
+
+
+//照片选择
+Warning="警告";
+
+OK="好的";
+
+Selected_Max_Pics="当前最多选择%d张图片";
+Selected_Min_Pics="当前至少选择%d张图片";
+
+//消息流
+Community="社区";
+ShowMoreComments="加载更多";
+
+//话题过滤
+Search="搜索";
+Search_Topic="查找话题...";
+Topic_No_Desc="该话题没有描述";
+Has_Focused="取消关注";
+No_Focused="关注";
+Add_Focused="关注";
+Focused_Topics="我关注的";
+Recomended_Topics="推荐话题";
+All_Topic="全部话题";
+
+//No_Focused="未关注";
+
+//发送消息
+Sorry = "抱歉";
+Empty_Text = "消息不能为空";
+Empty_TitileText = "标题内容不能为空";
+Empty_ContentText = "文字内容不能为空";
+OK = "好";
+
+Create_Feed_Success = "消息发送成功";
+Create_Feed_Fail = "消息发送失败";
+
+//feed操作
+Collection_has_touch_the_limit = "你的收藏列表已满，请先移除一些收藏项";
+
+//个人中心
+
+No_Name="用户名为空";
+No_Timeline="哇，这家伙居然什么都没说过！";
+No_FocusPeople="哇，这家伙居然谁都没关注！";
+No_Followers="哇，这家伙居然没有一个粉丝！";
+No_Subscribers="该用户还没有关注话题";
+Album="相册";
+Topic="话题";
+Private_Letter="私信管理员";
+User_Center="个人中心";
+User_Feed="消息";
+User_fans="粉丝";
+User_followers="关注";
+
+
+//帐号设置
+user_setting="用户设置";
+message_setting="推送设置";
+message_switch_open="推送开关";
+message_status_close="已开启";
+message_status_close="已关闭";
+message_open_method="请在iOS设备的“设置”-“通知”中进行修改";
+Setting="设置";
+ProfileSetting="帐号设置";
+NickName="昵称";
+Gender="性别";
+Male="男";
+Female="女";
+Save="保存";
+//消息系统
+Receive_Comment="收到的评论";
+Send_Comment="发出的评论";
+Receive_Like="收到的赞";
+
+// -----------------------------------以下为论坛----------------------------------------------
+
+
+// POST LIST
+um_com_forum_post_hot="热门";
+um_com_forum_post_hot_a_day="昨天";
+um_com_forum_post_hot_recent_day="近%d天";
+um_com_forum_post_recommend="推荐";
+um_com_forum_post_following="关注";
+um_com_forum_post_topic="话题";
+
+um_com_forum_post_comment_count="评论(%@)";
+um_com_forum_post_like_count="点赞(%@)";
+um_com_forum_post_whom_at_time="%@ 发表于 %@";
+
+// TOPIC POST
+um_com_forum_topic_latest_post="最新发布";
+um_com_forum_topic_latest_reply="最后回复";
+um_com_forum_topic_recommend="推荐";
+um_com_forum_topic_hot="最热";
+um_com_forum_topic_hot_a_day="昨天";
+um_com_forum_topic_hot_recent_days="近%d天";
+um_com_forum_topic_hot_recent_month="近%d月";

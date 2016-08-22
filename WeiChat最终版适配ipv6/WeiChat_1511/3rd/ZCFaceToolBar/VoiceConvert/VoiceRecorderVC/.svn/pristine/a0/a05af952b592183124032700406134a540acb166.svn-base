@@ -1,0 +1,244 @@
+//
+//  ChatVoiceRecorderVC.m
+//  TJRtaojinroad
+//
+//  Created by Jeans on 3/23/13.
+//  Copyright (c) 2013 淘金路. All rights reserved.
+//
+
+#import "ChatVoiceRecorderVC.h"
+#import "AudioToolbox/AudioToolbox.h"
+#import <AVFoundation/AVFoundation.h>
+#import <CoreAudio/CoreAudioTypes.h>
+#import "UIView+Animation.h"
+#import "ChatRecorderView.h"
+
+@interface ChatVoiceRecorderVC ()<AVAudioRecorderDelegate>{
+    CGFloat                 curCount;           //当前计数,初始为0
+    ChatRecorderView        *recorderView;      //录音界面
+    CGPoint                 curTouchPoint;      //触摸点
+    BOOL                    canNotSend;         //不能发送
+    NSTimer                 *timer;
+}
+
+@property (retain, nonatomic)   AVAudioRecorder     *recorder;
+
+@end
+
+@implementation ChatVoiceRecorderVC
+@synthesize recorder;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc{
+    [recorder release];
+    TT_RELEASE_SAFELY(recorderView);
+    [super dealloc];
+}
+
+#pragma mark - 开始录音
+- (void)beginRecordByChatTopicId:(NSString *)_topicId{
+    //创建目录
+//    [[NSFileManager defaultManager]createDirectoryAtPath:[VoiceRecorderBaseVC getCacheDirectory] withIntermediateDirectories:NO attributes:nil error:nil];
+    
+    //设置文件名和录音路径
+    self.recordFileName = [VoiceRecorderBaseVC getFileNameByUserId:ROOTCONTROLLER_USER.userId topicId:_topicId];
+    self.recordFilePath = [VoiceRecorderBaseVC getPathByFileName:recordFileName ofType:@"wav"];
+
+    //初始化录音
+    self.recorder = [[[AVAudioRecorder alloc]initWithURL:[NSURL URLWithString:recordFilePath] settings:[VoiceRecorderBaseVC getAudioRecorderSettingDict] error:nil]autorelease];
+        recorder.delegate = self;
+        recorder.meteringEnabled = YES;
+    
+    [recorder prepareToRecord];
+    
+    //还原计数
+    curCount = 0;
+    //还原发送
+    canNotSend = NO;
+    
+    //开始录音
+    [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayAndRecord error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    [recorder record];
+    
+    //启动计时器
+    [self startTimer];
+    
+    //显示录音界面
+    [self initRecordView];
+    [UIView showView:recorderView
+         animateType:AnimateTypeOfPopping
+           finalRect:kRecorderViewRect
+          completion:^(BOOL finish){
+        if (finish){
+            //注册nScreenTouch事件
+            [self addScreenTouchObserver];
+
+        }
+    }];
+    //设置遮罩背景不可触摸
+    [UIView setTopMaskViewCanTouch:NO];
+}
+#pragma mark - 初始化录音界面
+- (void)initRecordView{
+    if (recorderView == nil)
+        recorderView = (ChatRecorderView*)[[[[NSBundle mainBundle]loadNibNamed:@"ChatRecorderView" owner:self options:nil]lastObject]retain];
+    //还原界面显示
+    [recorderView restoreDisplay];
+}
+#pragma mark - 启动定时器
+- (void)startTimer{
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(updateMeters) userInfo:nil repeats:YES];
+}
+
+#pragma mark - 停止定时器
+- (void)stopTimer{
+    if (timer && timer.isValid){
+        [timer invalidate];
+        timer = nil;
+    }
+}
+#pragma mark - 更新音频峰值
+- (void)updateMeters{
+    if (recorder.isRecording){
+    
+        //更新峰值
+        [recorder updateMeters];
+        [recorderView updateMetersByAvgPower:[recorder averagePowerForChannel:0]];
+//        NSLog(@"峰值:%f",[recorder averagePowerForChannel:0]);
+        
+        //倒计时
+        if (curCount >= maxRecordTime - 10 && curCount < maxRecordTime) {
+            //剩下10秒
+            recorderView.countDownLabel.text = [NSString stringWithFormat:@"录音剩下:%d秒",(int)(maxRecordTime-curCount)];
+        }else if (curCount >= maxRecordTime){
+            //时间到
+            [self touchEnded:curTouchPoint];
+        }
+        curCount += 0.1f;
+    }
+}
+
+#pragma mark - 移除触摸观察者
+- (void)removeScreenTouchObserver{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"nScreenTouch" object:nil];//移除nScreenTouch事件
+}
+#pragma mark - 添加触摸观察者
+- (void)addScreenTouchObserver{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onScreenTouch:) name:@"nScreenTouch" object:nil];
+}
+-(void)onScreenTouch:(NSNotification *)notification {
+    UIEvent *event=[notification.userInfo objectForKey:@"data"];
+    NSSet *allTouches = event.allTouches;
+    
+    //如果未触摸或只有单点触摸
+    if ((curTouchPoint.x == CGPointZero.x && curTouchPoint.y == CGPointZero.y) || allTouches.count == 1)
+        [self transferTouch:[allTouches anyObject]];
+    else{
+        //遍历touch,找到最先触摸的那个touch
+        for (UITouch *touch in allTouches){
+            CGPoint prePoint = [touch previousLocationInView:nil];
+    
+            if (prePoint.x == curTouchPoint.x && prePoint.y == curTouchPoint.y)
+                [self transferTouch:touch];
+        }
+    }
+}
+//传递触点
+- (void)transferTouch:(UITouch*)_touch{
+    CGPoint point = [_touch locationInView:nil];
+    switch (_touch.phase) {
+        case UITouchPhaseBegan:
+            [self touchBegan:point];
+            break;
+        case UITouchPhaseMoved:
+            [self touchMoved:point];
+            break;
+        case UITouchPhaseCancelled:
+        case UITouchPhaseEnded:
+            [self touchEnded:point];
+            break;
+        default:
+            break;
+    }
+}
+#pragma mark - 触摸开始
+- (void)touchBegan:(CGPoint)_point{
+    curTouchPoint = _point;
+}
+#pragma mark - 触摸移动
+- (void)touchMoved:(CGPoint)_point{
+    curTouchPoint = _point;
+    //判断是否移动到取消区域
+    canNotSend = _point.y < kCancelOriginY ? YES : NO;
+    
+    //设置取消动画
+    [recorderView prepareToDelete:canNotSend];
+}
+#pragma mark - 触摸结束
+- (void)touchEnded:(CGPoint)_point{
+    //停止计时器
+    [self stopTimer];
+    
+
+    
+    curTouchPoint = CGPointZero;
+    [self removeScreenTouchObserver];
+    
+    [UIView hideViewByCompletion:^(BOOL finish){
+    
+        //停止录音
+        if (recorder.isRecording)
+            [recorder stop];
+        
+        if (canNotSend) {
+            //取消发送，删除文件
+            [VoiceRecorderBaseVC deleteFileAtPath:recordFilePath];
+        }else{
+            //回调录音文件路径
+            if ([self.vrbDelegate respondsToSelector:@selector(VoiceRecorderBaseVCRecordFinish:fileName:)])
+                [self.vrbDelegate VoiceRecorderBaseVCRecordFinish:recordFilePath fileName:recordFileName];
+        }
+    }];
+}
+
+    
+#pragma mark - AVAudioRecorder Delegate Methods
+- (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag{
+    NSLog(@"录音停止");
+    
+    [self stopTimer];
+    curCount = 0;
+}
+- (void)audioRecorderBeginInterruption:(AVAudioRecorder *)recorder{
+    NSLog(@"录音开始");
+    [self stopTimer];
+    curCount = 0;
+}
+- (void)audioRecorderEndInterruption:(AVAudioRecorder *)recorder withOptions:(NSUInteger)flags{
+    NSLog(@"录音中断");
+    [self stopTimer];
+    curCount = 0;
+}
+
+@end

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="280" id="KGk-i7-Jjw" customClass="UMComFeedsTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="281"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" id="FRr-Yv-RRQ" userLabel="feedBgView">
+                        <rect key="frame" x="5" y="0.0" width="310" height="280"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UMComSDKResources.bundle/images/um_micro_feed_top" id="HAx-3G-tlV" userLabel="topImage">
+                                <rect key="frame" x="10" y="0.0" width="13" height="13"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UMComSDKResources.bundle/images/um_micro_feed_elite" id="eNA-yJ-R8E" userLabel="elitImage">
+                                <rect key="frame" x="31" y="0.0" width="13" height="13"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UMComSDKResources.bundle/images/um_forum_post_bulletin" id="STi-ht-UgI" userLabel="publicImage">
+                                <rect key="frame" x="281" y="0.0" width="29" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zHE-aQ-KSn" userLabel="nameLabel">
+                                <rect key="frame" x="60" y="16" width="171" height="20"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="sJM-W2-c7s" userLabel="feedView" customClass="UMComMutiStyleTextView">
+                                <rect key="frame" x="53" y="43" width="240" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="eLG-bB-3SJ" userLabel="originBgView" customClass="UIImageView">
+                                <rect key="frame" x="10" y="68" width="290" height="145"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="nA5-JH-zSS">
+                                        <rect key="frame" x="0.0" y="59" width="290" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UMComSDKResources.bundle/images/um_forum_location" id="qvo-yx-W8N">
+                                                <rect key="frame" x="0.0" y="4" width="10" height="12"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京市海淀区花园东路" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q0g-eB-0zo">
+                                                <rect key="frame" x="14" y="0.0" width="216" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.54117647059999996" green="0.53725490200000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0m" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qvy-FS-SJD">
+                                                <rect key="frame" x="238" y="0.0" width="52" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.54117647059999996" green="0.53725490200000003" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="Gfv-pj-ikV" customClass="UMComMutiStyleTextView">
+                                        <rect key="frame" x="5" y="11" width="280" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="6M6-4L-QkF" customClass="UMComGridView">
+                                        <rect key="frame" x="0.0" y="83" width="290" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EiV-fo-TMc" userLabel="moreButton">
+                                <rect key="frame" x="267" y="3" width="41" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" image="UMComSDKResources.bundle/images/um_dropdowngray_forum">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onClickOnMoreButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="h2N-8p-t3T"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pmS-bw-Z0T" userLabel="timeLabel">
+                                <rect key="frame" x="8" y="249" width="93" height="20"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="P4W-j4-QAD">
+                                <rect key="frame" x="121" y="249" width="189" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zfu-VT-aoL">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="5" maxX="5" maxY="5"/>
+                                        <inset key="imageEdgeInsets" minX="13" minY="3" maxX="34" maxY="3"/>
+                                        <state key="normal" title="forward" image="UMComSDKResources.bundle/images/um_micro_forward_normal" backgroundImage="UMComSDKResources.bundle/images/um_micro_feed_buttonBg"/>
+                                        <connections>
+                                            <action selector="didClickOnForwardButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="742-K2-FqJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="f7z-b3-OtM">
+                                        <rect key="frame" x="126" y="0.0" width="60" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="5" maxX="5" maxY="5"/>
+                                        <inset key="imageEdgeInsets" minX="13" minY="3" maxX="34" maxY="3"/>
+                                        <state key="normal" title="comment" image="UMComSDKResources.bundle/images/um_micro_comment_normal" backgroundImage="UMComSDKResources.bundle/images/um_micro_feed_buttonBg"/>
+                                        <connections>
+                                            <action selector="didClickOnCommentButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YAA-vU-FYs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dBI-GB-6GH">
+                                        <rect key="frame" x="63" y="0.0" width="60" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="5" maxX="5" maxY="5"/>
+                                        <inset key="imageEdgeInsets" minX="13" minY="3" maxX="34" maxY="3"/>
+                                        <state key="normal" title="like" image="UMComSDKResources.bundle/images/um_micro_like_normal" backgroundImage="UMComSDKResources.bundle/images/um_micro_feed_buttonBg"/>
+                                        <connections>
+                                            <action selector="didClickOnLikeButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZFb-GH-odg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <connections>
+                <outlet property="bottomMenuBgView" destination="P4W-j4-QAD" id="AT3-eA-Exg"/>
+                <outlet property="commentButton" destination="f7z-b3-OtM" id="6vJ-gZ-CSr"/>
+                <outlet property="dateLabel" destination="pmS-bw-Z0T" id="xjv-XC-ixu"/>
+                <outlet property="eletImage" destination="eNA-yJ-R8E" id="imp-EG-iXa"/>
+                <outlet property="feedBgView" destination="FRr-Yv-RRQ" id="WgV-ET-kV0"/>
+                <outlet property="feedStyleView" destination="sJM-W2-c7s" id="FIF-Sk-nWQ"/>
+                <outlet property="forwardButton" destination="zfu-VT-aoL" id="ihr-Su-Fm1"/>
+                <outlet property="imageGridView" destination="6M6-4L-QkF" id="qgu-ih-Idz"/>
+                <outlet property="likeButton" destination="dBI-GB-6GH" id="khE-li-sIF"/>
+                <outlet property="locationBgView" destination="nA5-JH-zSS" id="OWG-8t-gWm"/>
+                <outlet property="locationDistance" destination="qvy-FS-SJD" id="y7J-PG-Dmz"/>
+                <outlet property="locationLabel" destination="q0g-eB-0zo" id="vDQ-c3-gjb"/>
+                <outlet property="moreButton" destination="EiV-fo-TMc" id="cTt-ic-36Q"/>
+                <outlet property="nameLabel" destination="zHE-aQ-KSn" id="igK-pv-pKC"/>
+                <outlet property="originFeedBackgroundView" destination="eLG-bB-3SJ" id="6Wd-mA-cgE"/>
+                <outlet property="originFeedStyleView" destination="Gfv-pj-ikV" id="yWt-mb-jfN"/>
+                <outlet property="publicImage" destination="STi-ht-UgI" id="iHk-g9-rqY"/>
+                <outlet property="topImage" destination="HAx-3G-tlV" id="GJD-DP-Sm5"/>
+            </connections>
+            <point key="canvasLocation" x="-1761" y="-211.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="UMComSDKResources.bundle/images/um_dropdowngray_forum" width="75" height="75"/>
+        <image name="UMComSDKResources.bundle/images/um_forum_location" width="75" height="75"/>
+        <image name="UMComSDKResources.bundle/images/um_forum_post_bulletin" width="75" height="75"/>
+        <image name="UMComSDKResources.bundle/images/um_micro_comment_normal" width="75" height="75"/>
+        <image name="UMComSDKResources.bundle/images/um_micro_feed_buttonBg" width="75" height="75"/>
+        <image name="UMComSDKResources.bundle/images/um_micro_feed_elite" width="75" height="75"/>
+        <image name="UMComSDKResources.bundle/images/um_micro_feed_top" width="75" height="75"/>
+        <image name="UMComSDKResources.bundle/images/um_micro_forward_normal" width="75" height="75"/>
+        <image name="UMComSDKResources.bundle/images/um_micro_like_normal" width="75" height="75"/>
+    </resources>
+</document>

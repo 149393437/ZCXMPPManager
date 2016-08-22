@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController2">
+            <connections>
+                <outlet property="birthdayLabel" destination="EJi-Kz-0gH" id="2UI-KS-tUm"/>
+                <outlet property="sexImageView" destination="3FE-xu-Z4L" id="sHe-f9-4bq"/>
+                <outlet property="sexLabel" destination="aXv-gt-g7z" id="L4W-hC-9G3"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEO-7A-BfS">
+                    <rect key="frame" x="250" y="44" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="I2x-lM-fZB"/>
+                        <constraint firstAttribute="width" constant="100" id="ZIb-Ku-1Vf"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="icon_register_camera.png"/>
+                    <connections>
+                        <action selector="photoButtonClick:" destination="-1" eventType="touchUpInside" id="bYc-Kf-QLB"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpD-mW-Vmh">
+                    <rect key="frame" x="0.0" y="164" width="600" height="44"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_register_birthday.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vhq-ea-ynX">
+                            <rect key="frame" x="19" y="12" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="KsR-Ki-1Wx"/>
+                                <constraint firstAttribute="width" constant="20" id="sht-2e-gIP"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择生日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJi-Kz-0gH">
+                            <rect key="frame" x="57" y="11" width="234" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="Et9-dw-6fb"/>
+                                <constraint firstAttribute="width" constant="234" id="sUn-bV-Emd"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="0.89830280169999999" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_forward_disabled.png" translatesAutoresizingMaskIntoConstraints="NO" id="L2E-kF-BGz">
+                            <rect key="frame" x="551" y="2" width="30" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="Abn-df-4Am"/>
+                                <constraint firstAttribute="height" constant="40" id="nCf-As-EuS"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="md1-Fu-RKc">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <connections>
+                                <action selector="birthdayClick:" destination="-1" eventType="touchUpInside" id="Ecc-SD-zaE"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="md1-Fu-RKc" secondAttribute="bottom" id="HCG-BT-5IC"/>
+                        <constraint firstAttribute="trailing" secondItem="md1-Fu-RKc" secondAttribute="trailing" id="Jug-Of-VE6"/>
+                        <constraint firstAttribute="trailing" secondItem="L2E-kF-BGz" secondAttribute="trailing" constant="19" id="OQm-sn-bPq"/>
+                        <constraint firstItem="md1-Fu-RKc" firstAttribute="top" secondItem="xpD-mW-Vmh" secondAttribute="top" id="Oz4-ky-dSH"/>
+                        <constraint firstItem="Vhq-ea-ynX" firstAttribute="leading" secondItem="xpD-mW-Vmh" secondAttribute="leading" constant="19" id="SuE-a9-m97"/>
+                        <constraint firstItem="Vhq-ea-ynX" firstAttribute="top" secondItem="xpD-mW-Vmh" secondAttribute="top" constant="12" id="WAo-lP-5IT"/>
+                        <constraint firstItem="L2E-kF-BGz" firstAttribute="top" secondItem="xpD-mW-Vmh" secondAttribute="top" constant="2" id="Zo0-fK-XKl"/>
+                        <constraint firstItem="EJi-Kz-0gH" firstAttribute="leading" secondItem="Vhq-ea-ynX" secondAttribute="trailing" constant="18" id="dcd-bh-aOc"/>
+                        <constraint firstAttribute="height" constant="44" id="lgZ-gj-sKc"/>
+                        <constraint firstItem="md1-Fu-RKc" firstAttribute="leading" secondItem="xpD-mW-Vmh" secondAttribute="leading" id="ocP-5G-V7K"/>
+                        <constraint firstItem="EJi-Kz-0gH" firstAttribute="top" secondItem="xpD-mW-Vmh" secondAttribute="top" constant="11" id="uCh-zz-Rer"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P93-vr-CrL">
+                    <rect key="frame" x="0.0" y="209" width="600" height="44"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_register_gender.png" translatesAutoresizingMaskIntoConstraints="NO" id="3FE-xu-Z4L">
+                            <rect key="frame" x="19" y="14" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="6hU-gk-7jS"/>
+                                <constraint firstAttribute="height" constant="20" id="jHi-hu-BHm"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择性别" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXv-gt-g7z">
+                            <rect key="frame" x="57" y="14" width="233" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="geh-pD-Kf5"/>
+                                <constraint firstAttribute="width" constant="233" id="x2e-ej-Swi"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="0.9155980603448276" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_forward_disabled.png" translatesAutoresizingMaskIntoConstraints="NO" id="iTq-M1-uCC">
+                            <rect key="frame" x="551" y="2" width="30" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="brE-pY-W9i"/>
+                                <constraint firstAttribute="height" constant="40" id="t0B-pe-k7U"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dcf-KT-4kJ">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <connections>
+                                <action selector="sexClick:" destination="-1" eventType="touchUpInside" id="Cz3-iR-VJi"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="iTq-M1-uCC" firstAttribute="top" secondItem="P93-vr-CrL" secondAttribute="top" constant="2" id="11X-aa-wny"/>
+                        <constraint firstAttribute="trailing" secondItem="iTq-M1-uCC" secondAttribute="trailing" constant="19" id="Cp8-Q3-vjq"/>
+                        <constraint firstAttribute="bottom" secondItem="Dcf-KT-4kJ" secondAttribute="bottom" id="Erf-VO-yk1"/>
+                        <constraint firstItem="aXv-gt-g7z" firstAttribute="leading" secondItem="3FE-xu-Z4L" secondAttribute="trailing" constant="18" id="Q0m-8Y-w0p"/>
+                        <constraint firstItem="3FE-xu-Z4L" firstAttribute="top" secondItem="P93-vr-CrL" secondAttribute="top" constant="14" id="QaE-ia-u4r"/>
+                        <constraint firstItem="Dcf-KT-4kJ" firstAttribute="leading" secondItem="P93-vr-CrL" secondAttribute="leading" id="SaT-Fd-5Zs"/>
+                        <constraint firstItem="aXv-gt-g7z" firstAttribute="top" secondItem="P93-vr-CrL" secondAttribute="top" constant="14" id="T6L-x2-Ewj"/>
+                        <constraint firstAttribute="trailing" secondItem="Dcf-KT-4kJ" secondAttribute="trailing" id="Xsw-bO-sye"/>
+                        <constraint firstItem="3FE-xu-Z4L" firstAttribute="leading" secondItem="P93-vr-CrL" secondAttribute="leading" constant="19" id="ij7-Zh-J74"/>
+                        <constraint firstItem="Dcf-KT-4kJ" firstAttribute="top" secondItem="P93-vr-CrL" secondAttribute="top" id="mHS-7Z-WYk"/>
+                        <constraint firstAttribute="height" constant="44" id="ozC-SM-FzA"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="P93-vr-CrL" firstAttribute="top" secondItem="xpD-mW-Vmh" secondAttribute="bottom" constant="1" id="6gP-u2-BNP"/>
+                <constraint firstItem="P93-vr-CrL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NzW-Qa-LGw"/>
+                <constraint firstItem="xpD-mW-Vmh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZkD-qG-mgt"/>
+                <constraint firstItem="PEO-7A-BfS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="gPL-eT-ozy"/>
+                <constraint firstItem="xpD-mW-Vmh" firstAttribute="top" secondItem="PEO-7A-BfS" secondAttribute="bottom" constant="20" id="iCl-DZ-cz9"/>
+                <constraint firstAttribute="trailing" secondItem="P93-vr-CrL" secondAttribute="trailing" id="rcD-O8-7Y6"/>
+                <constraint firstAttribute="trailing" secondItem="xpD-mW-Vmh" secondAttribute="trailing" id="vxK-Dz-Vrl"/>
+                <constraint firstItem="PEO-7A-BfS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wHR-cd-fgO"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_forward_disabled.png" width="27" height="27"/>
+        <image name="icon_register_birthday.png" width="16" height="16"/>
+        <image name="icon_register_camera.png" width="100" height="100"/>
+        <image name="icon_register_gender.png" width="16" height="16"/>
+    </resources>
+</document>

@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CB514F92D69D39B56ADFE4F6EFA4FC4EE5F64D5E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "eccd39b4-39d4-47ab-bb89-e81f4763b8b8++5109" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "CB514F92D69D39B56ADFE4F6EFA4FC4EE5F64D5E" : 0,
+    "eccd39b4-39d4-47ab-bb89-e81f4763b8b8++5109" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "BD64D52F-F22B-43E4-9E77-AE5E5EB533C1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "CB514F92D69D39B56ADFE4F6EFA4FC4EE5F64D5E" : "ZCXMPPManager\/",
+    "eccd39b4-39d4-47ab-bb89-e81f4763b8b8++5109" : "ZCXMPPManager\/WeiChat%E6%9C%80%E7%BB%88%E7%89%88%E9%80%82%E9%85%8Dipv6\/WeiChat_1511\/3rd\/ZCFaceToolBar\/VoiceConvert\/VoiceRecorderVC\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "WeiChat_1511",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "WeiChat最终版适配ipv6\/WeiChat_1511.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/149393437\/ZCXMPPManager.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CB514F92D69D39B56ADFE4F6EFA4FC4EE5F64D5E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.0.240\/repository",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "eccd39b4-39d4-47ab-bb89-e81f4763b8b8++5109"
+    }
+  ]
+}
