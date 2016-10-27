@@ -199,8 +199,7 @@ const static int g_UMComLocationView_widthTemplate = 375;//在iphone6的宽度
         }
         
     }}
-
-- (void)touchesCancelled:(nullable NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event
+-(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     if (YES) {
         if (self.locationbackgroudColor) {
@@ -209,8 +208,8 @@ const static int g_UMComLocationView_widthTemplate = 375;//在iphone6的宽度
         else{
             self.backgroundColor = [UIColor whiteColor];
         }
-    }}
-
+    }
+}
 -(void)handleTapGesture:(UIGestureRecognizer*)gestureRecognizer
 {
     NSLog(@"gestureRecognizer.state..%ld",(long)gestureRecognizer.state);
