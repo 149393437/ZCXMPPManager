@@ -248,7 +248,7 @@
 
 }
 #pragma mark 结合XMPP使用的,单独使用请删掉
-
+//测试数据
 -(void)configWithXMPP_Model:(XMPPMessageArchiving_Message_CoreDataObject *)object leftImage:(UIImage *)leftImage rightImage:(UIImage *)right
 {
     if (object.timestamp) {
